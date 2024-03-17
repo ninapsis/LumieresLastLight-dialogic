@@ -1,0 +1,52 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(0.145098, 0.211765, 0.396078, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {
+"Mood 1": {
+"mode": 1,
+"name": "Mood 1",
+"pitch_base": 1.0,
+"pitch_variance": 0.1,
+"skip_characters": 0.0,
+"sound_path": "",
+"volume_base": 1.1,
+"volume_variance": 0.5
+},
+"Mood 2": {
+"mode": 0,
+"name": "Mood 2",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"skip_characters": 0.0,
+"sound_path": "res://dialogic first test",
+"volume_base": 1.2,
+"volume_variance": 0.0
+}
+},
+"style": "style-teste-1"
+},
+"default_portrait": "Idle",
+"description": "She is not sure whether to be trusted or not.",
+"display_name": "Elena",
+"mirror": false,
+"nicknames": ["Behemoth"],
+"offset": Vector2(0, 0),
+"portraits": {
+"Idle": {
+"export_overrides": {
+"image": "\"res://NPCs/shadow.png\""
+},
+"ignore_char_scale": false,
+"mirror": true,
+"offset": Vector2(0, -60),
+"scale": 0.5,
+"scene": "",
+"sound_mood": "Mood 2"
+}
+},
+"scale": 1.0
+}

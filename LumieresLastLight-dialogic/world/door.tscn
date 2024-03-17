@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cofr5m2qcx03a"]
+
+[ext_resource type="Script" path="res://world/door.gd" id="1_ohmoa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pd6o"]
+size = Vector2(20, 32)
+
+[node name="Door" type="Area2D" groups=["doors"]]
+collision_layer = 512
+collision_mask = 4
+script = ExtResource("1_ohmoa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_3pd6o")
+
+[node name="RightCast" type="RayCast2D" parent="."]
+position = Vector2(0, -21)
+target_position = Vector2(16, 0)
+
+[node name="LeftCast" type="RayCast2D" parent="."]
+position = Vector2(0, -21)
+target_position = Vector2(-16, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

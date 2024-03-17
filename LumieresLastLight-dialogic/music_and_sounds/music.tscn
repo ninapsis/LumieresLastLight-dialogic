@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu57jfhgn46i1"]
+
+[ext_resource type="Script" path="res://music_and_sounds/music.gd" id="1_vxo70"]
+[ext_resource type="AudioStream" uid="uid://cjxuv3illekky" path="res://music_and_sounds/Mojito-17LUFS.ogg" id="2_5ug8r"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_vxo70")
+main_theme = ExtResource("2_5ug8r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

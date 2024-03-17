@@ -1,0 +1,9 @@
+sons mt frequentes (*footsteps*, bullet, hurt, *monstershot*, step) implementar 
+com leves variações de pitch (entre -1 e +1 st costuma ser bom, às vezes mais, usar de bom senso)
+e leves variações de volume também (entre -1 e +1 db etc mesma coisa às vezes mais às vezes pra algo bem delicado menos vc vai sentir) 
+assim gera menos repetição e cansaço no som qnd algo bate no mesmo volume sempre tende a cansar os ouvidos e cada vez mais qnd repete muito
+
+
+a maioria dos sons tão com volumes bem parecidos mas alguns não, é normal se um som precisar ser mt mais baixo que 
+outro pq tem mais "impacto" ou algo que faz parecer que tem pro nosso ouvido, enfim 
+espero que vc goste dos sons e se precisar q edite algum só me falar <3 

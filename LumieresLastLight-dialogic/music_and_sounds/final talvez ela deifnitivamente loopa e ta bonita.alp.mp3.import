@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ygp572dj7spu"
+path="res://.godot/imported/final talvez ela deifnitivamente loopa e ta bonita.alp.mp3-10d05a4e553f3777026865c3ca675469.mp3str"
+
+[deps]
+
+source_file="res://music_and_sounds/final talvez ela deifnitivamente loopa e ta bonita.alp.mp3"
+dest_files=["res://.godot/imported/final talvez ela deifnitivamente loopa e ta bonita.alp.mp3-10d05a4e553f3777026865c3ca675469.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

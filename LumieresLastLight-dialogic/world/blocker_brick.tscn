@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl570egwx2ecn"]
+
+[ext_resource type="Texture2D" uid="uid://b5h6n7m5qrxtk" path="res://world/brick.png" id="2_47xhm"]
+[ext_resource type="Script" path="res://world/blocker_brick.gd" id="2_y00if"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ux6g"]
+size = Vector2(16, 16)
+
+[node name="BlockerBrick" type="StaticBody2D"]
+collision_mask = 0
+script = ExtResource("2_y00if")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_47xhm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_6ux6g")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

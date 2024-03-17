@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://q6ur3jsskg1h"]
+
+[ext_resource type="Texture2D" uid="uid://b5h6n7m5qrxtk" path="res://world/brick.png" id="1_cbof6"]
+[ext_resource type="Script" path="res://world/brick.gd" id="1_itu0c"]
+[ext_resource type="PackedScene" uid="uid://plggtvx4mjxh" path="res://collisions/hurtbox.tscn" id="3_k1sd2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ux6g"]
+size = Vector2(16, 16)
+
+[node name="Brick" type="StaticBody2D"]
+collision_layer = 65
+collision_mask = 0
+script = ExtResource("1_itu0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("1_cbof6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_6ux6g")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_k1sd2")]
+collision_layer = 64
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_6ux6g")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

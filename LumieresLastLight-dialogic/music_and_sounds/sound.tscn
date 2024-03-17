@@ -1,0 +1,58 @@
+[gd_scene load_steps=12 format=3 uid="uid://drma847xb3jl4"]
+
+[ext_resource type="Script" path="res://music_and_sounds/sound.gd" id="1_4ekhr"]
+[ext_resource type="AudioStream" uid="uid://b5rg0vsfkpkox" path="res://music_and_sounds/bullet.wav" id="2_561pt"]
+[ext_resource type="AudioStream" uid="uid://xkivuasr5ukg" path="res://music_and_sounds/click.wav" id="3_ahrxc"]
+[ext_resource type="AudioStream" uid="uid://d12yl6unrc206" path="res://music_and_sounds/enemy_die.wav" id="4_3fk3u"]
+[ext_resource type="AudioStream" uid="uid://75ay400uwror" path="res://music_and_sounds/explosion.wav" id="5_o8ys8"]
+[ext_resource type="AudioStream" uid="uid://b3j2cohsmb5lu" path="res://music_and_sounds/hurt.wav" id="6_m3dbk"]
+[ext_resource type="AudioStream" uid="uid://duec8t0idj4f8" path="res://music_and_sounds/jump.wav" id="7_oc6ko"]
+[ext_resource type="AudioStream" uid="uid://bdj47xfxkwmh1" path="res://music_and_sounds/pause.wav" id="8_yf0fw"]
+[ext_resource type="AudioStream" uid="uid://dwned1hqxbqtt" path="res://music_and_sounds/powerup.wav" id="9_8s8fh"]
+[ext_resource type="AudioStream" uid="uid://coi2d4oijncsk" path="res://music_and_sounds/step.wav" id="10_v7ngh"]
+[ext_resource type="AudioStream" uid="uid://dvgmtfwlyhrf" path="res://music_and_sounds/unpause.wav" id="11_22n0u"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_4ekhr")
+bullet = ExtResource("2_561pt")
+click = ExtResource("3_ahrxc")
+enemy_die = ExtResource("4_3fk3u")
+explosion = ExtResource("5_o8ys8")
+hurt = ExtResource("6_m3dbk")
+jump = ExtResource("7_oc6ko")
+pause = ExtResource("8_yf0fw")
+powerup = ExtResource("9_8s8fh")
+step = ExtResource("10_v7ngh")
+unpause = ExtResource("11_22n0u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer12" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer13" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer14" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer15" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer16" type="AudioStreamPlayer" parent="."]

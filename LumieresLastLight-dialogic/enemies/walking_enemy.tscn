@@ -1,0 +1,129 @@
+[gd_scene load_steps=18 format=3 uid="uid://fdnofrunphp"]
+
+[ext_resource type="Script" path="res://enemies/walking_enemy.gd" id="1_pldse"]
+[ext_resource type="Texture2D" uid="uid://ceiifhm04csce" path="res://enemies/walking_enemy.png" id="1_y48ng"]
+[ext_resource type="PackedScene" uid="uid://plggtvx4mjxh" path="res://collisions/hurtbox.tscn" id="3_m6es6"]
+[ext_resource type="PackedScene" uid="uid://da1nism87m0p1" path="res://collisions/hitbox.tscn" id="4_cj6c4"]
+[ext_resource type="PackedScene" uid="uid://dschnqabx06ei" path="res://stats.tscn" id="5_lkly3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcdex"]
+size = Vector2(33, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xvdd"]
+size = Vector2(20, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv127"]
+size = Vector2(15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqm1x"]
+atlas = ExtResource("1_y48ng")
+region = Rect2(0, 0, 64, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tuvm"]
+atlas = ExtResource("1_y48ng")
+region = Rect2(64, 0, 64, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orjus"]
+atlas = ExtResource("1_y48ng")
+region = Rect2(128, 0, 64, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpw1v"]
+atlas = ExtResource("1_y48ng")
+region = Rect2(192, 0, 64, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi13j"]
+atlas = ExtResource("1_y48ng")
+region = Rect2(256, 0, 64, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8phny"]
+atlas = ExtResource("1_y48ng")
+region = Rect2(320, 0, 64, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc488"]
+atlas = ExtResource("1_y48ng")
+region = Rect2(384, 0, 64, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vel3"]
+atlas = ExtResource("1_y48ng")
+region = Rect2(448, 0, 64, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwxad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqm1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tuvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orjus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpw1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi13j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8phny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc488")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vel3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="WalkingEnemy" type="CharacterBody2D"]
+position = Vector2(1, 0)
+collision_layer = 8
+script = ExtResource("1_pldse")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -9)
+texture = ExtResource("1_y48ng")
+flip_h = true
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -9.5)
+shape = SubResource("RectangleShape2D_hcdex")
+
+[node name="FloorCast" type="RayCast2D" parent="."]
+position = Vector2(-1, -5)
+target_position = Vector2(0, 12)
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_m6es6")]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-1, -8)
+shape = SubResource("RectangleShape2D_2xvdd")
+
+[node name="Hitbox" parent="." instance=ExtResource("4_cj6c4")]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-0.5, -7.5)
+shape = SubResource("RectangleShape2D_uv127")
+
+[node name="Stats" parent="." instance=ExtResource("5_lkly3")]
+
+[node name="DeathEffectLocation" type="Marker2D" parent="."]
+position = Vector2(-1, -6)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_dwxad")
+autoplay = "default"
+frame_progress = 0.395039
+flip_h = true
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]

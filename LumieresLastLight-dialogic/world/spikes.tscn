@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cerqc6e7k4a1b"]
+
+[ext_resource type="Texture2D" uid="uid://c811nmlvxjgt8" path="res://world/spikes.png" id="1_rghs0"]
+[ext_resource type="PackedScene" uid="uid://da1nism87m0p1" path="res://collisions/hitbox.tscn" id="2_0pvpo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo773"]
+size = Vector2(29, 12)
+
+[node name="Spikes" type="StaticBody2D"]
+z_index = -5
+position = Vector2(0, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("1_rghs0")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_0pvpo")]
+z_index = -5
+position = Vector2(0, -17)
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-0.5, 10)
+shape = SubResource("RectangleShape2D_lo773")
