@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bxlpsfuggj1dq"]
+[gd_scene load_steps=40 format=3 uid="uid://bxlpsfuggj1dq"]
 
 [ext_resource type="Script" path="res://world/level.gd" id="1_3s5wr"]
 [ext_resource type="PackedScene" uid="uid://cofr5m2qcx03a" path="res://world/door.tscn" id="2_ohnuc"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cerqc6e7k4a1b" path="res://world/spikes.tscn" id="18_f5vj7"]
 [ext_resource type="Texture2D" uid="uid://c811nmlvxjgt8" path="res://world/spikes.png" id="19_nnbi7"]
 [ext_resource type="PackedScene" uid="uid://da1nism87m0p1" path="res://collisions/hitbox.tscn" id="20_f0h1g"]
+[ext_resource type="PackedScene" uid="uid://bpkpjt23ivq8y" path="res://assets/death_wheel.tscn" id="21_4avq6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbrhj"]
 atlas = ExtResource("7_xqxi5")
@@ -441,6 +442,9 @@ connection = ExtResource("13_eiip0")
 position = Vector2(-2179, 643)
 new_level_path = "res://world/level_three.tscn"
 connection = ExtResource("13_eiip0")
+
+[node name="DeathWheel" parent="." instance=ExtResource("21_4avq6")]
+position = Vector2(-1811, 162)
 
 [connection signal="body_entered" from="oracle/Interactable" to="oracle/Interactable" method="_on_body_entered"]
 [connection signal="body_exited" from="oracle/Interactable" to="oracle/Interactable" method="_on_body_exited"]

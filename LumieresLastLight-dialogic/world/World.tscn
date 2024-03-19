@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvvkckvsg1y14"]
+[gd_scene load_steps=8 format=3 uid="uid://cvvkckvsg1y14"]
 
 [ext_resource type="PackedScene" uid="uid://dqo8hfel0inva" path="res://player/player.tscn" id="1_a2hwm"]
 [ext_resource type="Script" path="res://world/World.gd" id="1_yfyth"]
 [ext_resource type="PackedScene" uid="uid://dajb8oor7fgwo" path="res://world/level_one.tscn" id="6_53yu4"]
+[ext_resource type="Texture2D" uid="uid://tjksra1ho8rp" path="res://ui/frame.png" id="6_lf362"]
 [ext_resource type="PackedScene" uid="uid://cofbgoi2k2cy1" path="res://ui/health_meter.tscn" id="7_qhttc"]
 [ext_resource type="PackedScene" uid="uid://cqff3itnudxmx" path="res://menus/pause_menu.tscn" id="8_yj8q5"]
 [ext_resource type="PackedScene" uid="uid://bca8tgftmf8ch" path="res://ui/missile_ui.tscn" id="9_jc72q"]
@@ -18,18 +19,22 @@ floor_snap_length = 2.0
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HealthMeter" parent="UI" instance=ExtResource("7_qhttc")]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 5.0
-offset_bottom = 5.0
+offset_left = 25.0
+offset_top = 24.0
+offset_right = 25.0
+offset_bottom = 24.0
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("8_yj8q5")]
 visible = false
 
 [node name="MissileUI" parent="UI" instance=ExtResource("9_jc72q")]
-offset_left = 5.0
-offset_top = 18.0
-offset_right = 34.0
-offset_bottom = 38.0
+offset_left = 25.0
+offset_top = 37.0
+offset_right = 54.0
+offset_bottom = 57.0
+
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+position = Vector2(280, 157)
+texture = ExtResource("6_lf362")
 
 [node name="LevelOne" parent="." instance=ExtResource("6_53yu4")]
