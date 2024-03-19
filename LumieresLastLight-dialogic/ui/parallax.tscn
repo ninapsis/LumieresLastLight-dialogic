@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwoqaqadjb1mp"]
+
+[ext_resource type="Texture2D" uid="uid://dcujp0t7afp0x" path="res://ui/parallax.png" id="1_letce"]
+[ext_resource type="Texture2D" uid="uid://du005t0kx5lfq" path="res://ui/clouds.png" id="2_vppa4"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_letce")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(520, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("2_vppa4")
+centered = false

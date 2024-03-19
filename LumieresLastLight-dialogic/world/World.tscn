@@ -33,8 +33,12 @@ offset_top = 37.0
 offset_right = 54.0
 offset_bottom = 57.0
 
-[node name="Sprite2D" type="Sprite2D" parent="UI"]
+[node name="LevelOne" parent="." instance=ExtResource("6_53yu4")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = 50
 position = Vector2(280, 157)
 texture = ExtResource("6_lf362")
-
-[node name="LevelOne" parent="." instance=ExtResource("6_53yu4")]

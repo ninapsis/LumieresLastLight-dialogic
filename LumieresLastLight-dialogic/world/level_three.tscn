@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://world/OracleInteractable.gd" id="8_evq8d"]
 [ext_resource type="Script" path="res://world/Interactable2.gd" id="8_xge0b"]
 [ext_resource type="Texture2D" uid="uid://dacqekt03xjjq" path="res://enemies/boss_enemy_head.png" id="9_7qdy7"]
-[ext_resource type="Script" path="res://enemies/walking_enemy.gd" id="10_2b17j"]
+[ext_resource type="Script" path="res://world/WalkingEnemy_02.gd" id="10_5d8g2"]
 [ext_resource type="Script" path="res://world/interactable.gd" id="12_d1lol"]
 [ext_resource type="Resource" uid="uid://bisqw3tiv8abo" path="res://world/three_three.tres" id="13_eiip0"]
 [ext_resource type="Texture2D" uid="uid://2ccnf2vevaay" path="res://tilesets/platform.png" id="14_cn7dr"]
@@ -197,7 +197,9 @@ texture = ExtResource("9_7qdy7")
 [node name="WalkingEnemy" type="CharacterBody2D" parent="."]
 position = Vector2(-3, 643)
 collision_layer = 8
-script = ExtResource("10_2b17j")
+script = ExtResource("10_5d8g2")
+speed = null
+turns_at_ledges = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WalkingEnemy"]
 position = Vector2(-0.5, -9.5)
