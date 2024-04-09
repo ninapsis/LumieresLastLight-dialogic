@@ -32,9 +32,3 @@ func is_at_ledge():
 func turn_around():
 	direction *= -1.0
 
-func _on_hurtbox_hurt(_hitbox, damage):
-	stats.health -= damage
-
-func _on_stats_no_health():
-	Utils.instantiate_scene_on_world(EnemyDeathEffectScene, death_effect_location.global_position)
-	queue_free()

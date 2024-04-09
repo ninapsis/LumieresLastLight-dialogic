@@ -17,6 +17,7 @@ position = Vector2(86, 278)
 floor_snap_length = 2.0
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="HealthMeter" parent="UI" instance=ExtResource("7_qhttc")]
 offset_left = 25.0

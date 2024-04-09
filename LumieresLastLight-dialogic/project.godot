@@ -31,7 +31,9 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "NPC01": "res://NPCs/NPC01.dch",
+"OSHA": "res://dialogic first test/OSHA.dch",
 "character": "res://dialogic first test/character.dch",
+"mr_catheter": "res://dialogic first test/mr_catheter.dch",
 "old_man": "res://dialogic first test/old_man.dch"
 }
 directories/dtl_directory={

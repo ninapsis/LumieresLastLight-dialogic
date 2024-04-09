@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dajb8oor7fgwo"]
+[gd_scene load_steps=38 format=3 uid="uid://dajb8oor7fgwo"]
 
 [ext_resource type="Script" path="res://world/level.gd" id="1_4we4k"]
 [ext_resource type="PackedScene" uid="uid://c8ikq7l0jff3i" path="res://world/moving_platform.tscn" id="2_pqs16"]
@@ -18,13 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://cyckw23ou8a3l" path="res://world/camera_limits.tscn" id="12_ygdwc"]
 [ext_resource type="PackedScene" uid="uid://coy1llabr8360" path="res://world/save_station.tscn" id="14_6rjge"]
 [ext_resource type="Resource" uid="uid://diy2emdpfybmm" path="res://world/one_three.tres" id="17_0vcd2"]
-[ext_resource type="PackedScene" uid="uid://bra8sjgcq7g7w" path="res://NPCs/character.tscn" id="22_s4d7c"]
+[ext_resource type="Texture2D" uid="uid://ceqrjeyooqslm" path="res://images/ala.png" id="19_udqci"]
+[ext_resource type="Script" path="res://world/NPC_01.gd" id="20_h3tl4"]
+[ext_resource type="Script" path="res://world/NPC_02.gd" id="21_0qae1"]
 [ext_resource type="Texture2D" uid="uid://dcujp0t7afp0x" path="res://ui/parallax.png" id="23_jvxc8"]
 [ext_resource type="Script" path="res://world/interactable.gd" id="23_r1bgv"]
 [ext_resource type="Texture2D" uid="uid://cxi7sufvl5ua3" path="res://NPCs/joe-sitting.png" id="24_5sp65"]
 [ext_resource type="Texture2D" uid="uid://cslra4fjo3hgj" path="res://NPCs/Untitled_2.png" id="24_6merp"]
 [ext_resource type="Texture2D" uid="uid://du005t0kx5lfq" path="res://ui/clouds.png" id="24_l1jpp"]
-[ext_resource type="Texture2D" uid="uid://d1e3cfe1f5a5p" path="res://ui/front parallax.png" id="25_umitf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dke0r"]
 
@@ -675,7 +676,32 @@ custom_data_layer_0/name = ""
 custom_data_layer_0/type = 0
 sources/0 = SubResource("TileSetAtlasSource_u1l2r")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbrhj"]
+atlas = ExtResource("19_udqci")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aqaa"]
+atlas = ExtResource("19_udqci")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d15wa"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_hbrhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aqaa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xu5j"]
+size = Vector2(20, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1wq4"]
 size = Vector2(20, 43)
 
 [node name="LevelOne" type="Node2D"]
@@ -913,8 +939,25 @@ offset_bottom = 753.0
 [node name="SaveStation" parent="." instance=ExtResource("14_6rjge")]
 position = Vector2(-34, -257)
 
-[node name="Character" parent="." instance=ExtResource("22_s4d7c")]
+[node name="Character" type="StaticBody2D" parent="."]
 position = Vector2(-483, 398)
+collision_layer = 256
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character"]
+sprite_frames = SubResource("SpriteFrames_d15wa")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.433635
+
+[node name="Interactable" type="Area2D" parent="Character"]
+collision_layer = 128
+collision_mask = 4
+script = ExtResource("20_h3tl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Interactable"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_6xu5j")
 
 [node name="Character2" type="StaticBody2D" parent="."]
 position = Vector2(-204, 353)
@@ -924,11 +967,11 @@ collision_mask = 4
 [node name="Interactable" type="Area2D" parent="Character2"]
 collision_layer = 128
 collision_mask = 4
-script = ExtResource("23_r1bgv")
+script = ExtResource("21_0qae1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character2/Interactable"]
 position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_6xu5j")
+shape = SubResource("RectangleShape2D_d1wq4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Character2"]
 texture = ExtResource("24_5sp65")
@@ -945,7 +988,7 @@ script = ExtResource("23_r1bgv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Character3/Interactable"]
 position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_6xu5j")
+shape = SubResource("RectangleShape2D_d1wq4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Character3"]
 texture = ExtResource("24_6merp")
@@ -967,7 +1010,6 @@ motion_mirroring = Vector2(520, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2/ParallaxBackground/ParallaxLayer3"]
 z_index = 20
-texture = ExtResource("25_umitf")
 centered = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -990,6 +1032,8 @@ motion_mirroring = Vector2(520, 0)
 texture = ExtResource("24_l1jpp")
 centered = false
 
+[connection signal="body_entered" from="Character/Interactable" to="Character/Interactable" method="_on_body_entered"]
+[connection signal="body_exited" from="Character/Interactable" to="Character/Interactable" method="_on_body_exited"]
 [connection signal="body_entered" from="Character2/Interactable" to="Character2/Interactable" method="_on_body_entered"]
 [connection signal="body_exited" from="Character2/Interactable" to="Character2/Interactable" method="_on_body_exited"]
 [connection signal="body_entered" from="Character3/Interactable" to="Character3/Interactable" method="_on_body_entered"]
