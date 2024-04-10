@@ -171,6 +171,7 @@ func update_animations(input_axis):
 
 func die():
 	camera_2d.reparent(get_tree().current_scene)
+	Sound.play(Sound.enemy_die, randf_range(0.8, 1.1), 5.0)
 	queue_free()
 	Events.player_died.emit()
 

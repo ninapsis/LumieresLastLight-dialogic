@@ -40,8 +40,7 @@ directories/dtl_directory={
 "timeline": "res://dialogic first test/timeline.dtl",
 "timeline2": "res://dialogic first test/timeline2.dtl",
 "timeline3": "res://dialogic first test/timeline3.dtl",
-"timeline4": "res://dialogic first test/timeline4.dtl",
-"timeline_shipwreck": "res://dialogic first test/timeline_shipwreck.dtl"
+"timeline4": "res://dialogic first test/timeline4.dtl"
 }
 layout/style_list=["res://styles/basic-style.tres", "res://styles/visual_novel_premade.tres"]
 layout/default_style="res://styles/basic-style.tres"

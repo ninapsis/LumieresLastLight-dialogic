@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq0f1tcej04ou"]
+
+[ext_resource type="PackedScene" uid="uid://cerqc6e7k4a1b" path="res://world/spikes.tscn" id="1_bw2s4"]
+
+[node name="DeathPit" instance=ExtResource("1_bw2s4")]
+
+[node name="Sprite2D" parent="." index="0"]
+visible = false
+
+[node name="Hitbox" parent="." index="1"]
+damage = 10
