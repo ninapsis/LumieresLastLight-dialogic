@@ -76,6 +76,8 @@ window/size/initial_position_type=0
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://ui/mouse-cursor-export.png"
+mouse_cursor/custom_image_hotspot=Vector2(64, 64)
 
 [editor_plugins]
 

@@ -71,6 +71,8 @@ collision_layer = 8
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_hh3kl")
+acceleration = 200
+max_speed = 130
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sb2sg")
@@ -91,6 +93,7 @@ shape = SubResource("CircleShape2D_xief1")
 
 [node name="Hitbox" parent="." instance=ExtResource("4_7m5p6")]
 collision_mask = 16
+damage = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1, -1)
