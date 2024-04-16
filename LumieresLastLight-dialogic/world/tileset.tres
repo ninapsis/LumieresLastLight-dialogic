@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ctao7dhuql3j8" path="res://tilesets/greener_grass.png" id="1_au401"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bck7k"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xkdni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u1l2r"]
 texture = ExtResource("1_au401")
@@ -481,7 +481,7 @@ texture_region_size = Vector2i(32, 32)
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_bck7k")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_xkdni")
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.588235, 0.196078, 0.54902, 1)

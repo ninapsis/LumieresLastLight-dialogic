@@ -13,7 +13,7 @@ script = ExtResource("1_yfyth")
 
 [node name="Player" parent="." instance=ExtResource("1_a2hwm")]
 z_index = 1
-position = Vector2(376, 0)
+position = Vector2(106, 179)
 floor_snap_length = 2.0
 
 [node name="UI" type="CanvasLayer" parent="."]

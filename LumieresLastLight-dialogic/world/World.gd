@@ -2,7 +2,12 @@ class_name World
 extends Node2D
 
 @onready var level: = $LevelOne
-
+#var tileset = load("res://tilesets/code_tileset.png")
+#var dupe = tileset.duplicate(true)
+#var saved = ResourceSaver.save(tileset, filename.get_base_dir() + "/" + file + ".tres")
+#filename = file
+#base_tileset = load("res://addons/godotile/base.tres")
+#tileset = base_tileset.duplicate(true)
 func _enter_tree():
 	MainInstances.world = self
 

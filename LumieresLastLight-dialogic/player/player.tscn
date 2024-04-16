@@ -323,4 +323,6 @@ libraries = {
 position = Vector2(0, -17)
 
 [connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
