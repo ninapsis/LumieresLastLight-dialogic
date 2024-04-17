@@ -13,7 +13,7 @@ func _enter_tree():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	Events.door_entered.connect(change_levels)
 	Events.player_died.connect(game_over)
