@@ -1,9 +1,12 @@
 class_name Player
 extends CharacterBody2D
 
+enum States {IDLE, WALKING, JUMPING}
+
 const DustEffectScene = preload("res://effects/dust_effect.tscn")
 const JumpEffectScene = preload("res://effects/jump_effect.tscn")
 const WallJumpEffectScene = preload("res://effects/wall_jump_effect.tscn")
+#const StatesScene = preload("res://states.tscn")
 
 @export var acceleration = 512
 @export var max_velocity = 80
@@ -15,9 +18,10 @@ const WallJumpEffectScene = preload("res://effects/wall_jump_effect.tscn")
 @export var wall_slide_speed = 42
 @export var max_wall_slide_speed = 128
 
-
+var state_machine = States.IDLE
 var air_jump = false
 var state = move_state #THIS IS HOW I CHANGE THE PLAYERS BEHAVIOR BASED ON THE ROOM
+#var velocity = Vector2.ZERO
 
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Sprite2D
@@ -38,6 +42,13 @@ func _enter_tree():
 
 func _physics_process(delta):
 	state.call(delta)
+	match state_machine:
+		States.IDLE:
+			idle()
+		States.WALKING:
+			walking()
+		States.JUMPING:
+			jumping()
 	
 	if Input.is_action_pressed("fire") and fire_rate_timer.time_left == 0:
 		fire_rate_timer.start()
@@ -50,8 +61,32 @@ func _physics_process(delta):
 		player_blaster.fire_missile()
 		PlayerStats.missiles -= 1
 	
+	
 func _exit_tree():
 	MainInstances.player = null 
+
+func idle():
+	print("idle")
+	if Input.is_action_pressed("ui_left"):
+		change_state(States.WALKING)
+	if Input.is_action_pressed("ui_right"):
+		change_state(States.WALKING)
+	if Input.is_action_pressed("ui_up"):
+		change_state(States.JUMPING)
+
+func walking():
+	print("walking")
+	if Input.is_action_pressed("ui_up"):
+		change_state(States.JUMPING)
+	if !Input.is_action_pressed("ui_left"):
+		change_state(States.IDLE)
+	if !Input.is_action_pressed("ui_right"):
+		change_state(States.IDLE)
+
+func jumping():
+	print("rjumpgg")
+	if !Input.is_action_pressed("ui_up"):
+		change_state(States.IDLE)
 
 func move_state(delta):
 	apply_gravity(delta)
@@ -71,6 +106,9 @@ func move_state(delta):
 	if just_left_edge:
 		coyote_jump_timer.start()
 	wall_check()
+
+func change_state(newState):
+	state_machine = newState
 
 func wall_slide_state(delta):
 	var wall_normal = get_wall_normal() #a normal is a vector that points away from us. if we are looking for left, the normal points to right. if we are on a left wall, the character will jump to the right
@@ -186,3 +224,6 @@ func _on_hurtbox_hurt(hitbox, damage):
 	blinking_animation_player.play("Blink")
 	await blinking_animation_player.animation_finished
 	hurtbox.is_invincible = false
+
+
+
