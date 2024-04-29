@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://dajb8oor7fgwo"]
+[gd_scene load_steps=89 format=3 uid="uid://dajb8oor7fgwo"]
 
 [ext_resource type="Script" path="res://world/level.gd" id="1_4we4k"]
 [ext_resource type="Texture2D" uid="uid://ygpurv8xnw2g" path="res://assets/tree_3.png" id="2_q6hjo"]
@@ -22,7 +22,6 @@
 [ext_resource type="Resource" uid="uid://diy2emdpfybmm" path="res://world/one_three.tres" id="17_0vcd2"]
 [ext_resource type="Script" path="res://enemies/flying_enemy.gd" id="18_uo28u"]
 [ext_resource type="Texture2D" uid="uid://r4q482humdg3" path="res://enemies/flying_enemy.png" id="19_5glhv"]
-[ext_resource type="Texture2D" uid="uid://ceqrjeyooqslm" path="res://images/ala.png" id="19_udqci"]
 [ext_resource type="PackedScene" uid="uid://plggtvx4mjxh" path="res://collisions/hurtbox.tscn" id="20_6o2s4"]
 [ext_resource type="Script" path="res://world/NPC_01.gd" id="20_h3tl4"]
 [ext_resource type="Script" path="res://world/NPC_02.gd" id="21_0qae1"]
@@ -31,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dqcnit3jtacui" path="res://enemies/waypoint_pathfinding.tscn" id="23_u3rmo"]
 [ext_resource type="Texture2D" uid="uid://cxi7sufvl5ua3" path="res://NPCs/joe-sitting.png" id="24_5sp65"]
 [ext_resource type="Texture2D" uid="uid://cslra4fjo3hgj" path="res://NPCs/Untitled_2.png" id="24_6merp"]
+[ext_resource type="Texture2D" uid="uid://dcnklil07aphj" path="res://NPCs/head3.png" id="25_0vt3v"]
 [ext_resource type="Texture2D" uid="uid://bvdbfp6hpor8w" path="res://assets/NUVENS (1).png" id="26_8f7sb"]
 [ext_resource type="Texture2D" uid="uid://c8b5oposiknah" path="res://assets/pumpkins.png" id="28_5qhwy"]
 [ext_resource type="Texture2D" uid="uid://bkplhs35toe3d" path="res://ui/death_darkness.png" id="31_3pex2"]
@@ -109,26 +109,82 @@ radius = 8.24621
 [sub_resource type="CircleShape2D" id="CircleShape2D_8gpib"]
 radius = 5.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbrhj"]
-atlas = ExtResource("19_udqci")
-region = Rect2(0, 0, 32, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1sm2"]
+atlas = ExtResource("25_0vt3v")
+region = Rect2(0, 0, 22, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7aqaa"]
-atlas = ExtResource("19_udqci")
-region = Rect2(32, 0, 32, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga7od"]
+atlas = ExtResource("25_0vt3v")
+region = Rect2(22, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yage"]
+atlas = ExtResource("25_0vt3v")
+region = Rect2(44, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4b1f"]
+atlas = ExtResource("25_0vt3v")
+region = Rect2(66, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i2b0"]
+atlas = ExtResource("25_0vt3v")
+region = Rect2(88, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g0tx"]
+atlas = ExtResource("25_0vt3v")
+region = Rect2(110, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dla6o"]
+atlas = ExtResource("25_0vt3v")
+region = Rect2(132, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syms5"]
+atlas = ExtResource("25_0vt3v")
+region = Rect2(154, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xpp4"]
+atlas = ExtResource("25_0vt3v")
+region = Rect2(176, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2dh1"]
+atlas = ExtResource("25_0vt3v")
+region = Rect2(198, 0, 22, 22)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d15wa"]
 animations = [{
 "frames": [{
-"duration": 10.0,
-"texture": SubResource("AtlasTexture_hbrhj")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1sm2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7aqaa")
+"texture": SubResource("AtlasTexture_ga7od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yage")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4b1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i2b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g0tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dla6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syms5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xpp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2dh1")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 5.0
+"name": &"new_animation",
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xu5j"]
@@ -1666,9 +1722,7 @@ collision_mask = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chars_Enemies/Character"]
 sprite_frames = SubResource("SpriteFrames_d15wa")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.433635
+animation = &""
 
 [node name="Interactable" type="Area2D" parent="Chars_Enemies/Character"]
 collision_layer = 128
@@ -1676,6 +1730,26 @@ collision_mask = 4
 script = ExtResource("20_h3tl4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chars_Enemies/Character/Interactable"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_6xu5j")
+
+[node name="Character4" type="StaticBody2D" parent="Chars_Enemies"]
+position = Vector2(761, 239)
+collision_layer = 256
+collision_mask = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chars_Enemies/Character4"]
+sprite_frames = SubResource("SpriteFrames_d15wa")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.434071
+
+[node name="Interactable" type="Area2D" parent="Chars_Enemies/Character4"]
+collision_layer = 128
+collision_mask = 4
+script = ExtResource("20_h3tl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chars_Enemies/Character4/Interactable"]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_6xu5j")
 
@@ -1933,7 +2007,6 @@ texture = ExtResource("41_g5wg7")
 
 [node name="Crab-baby-head2" type="Sprite2D" parent="."]
 position = Vector2(2211, 125)
-scale = Vector2(1, 1)
 texture = ExtResource("43_12oue")
 flip_h = true
 
@@ -2058,6 +2131,8 @@ shape = SubResource("RectangleShape2D_nfuiy")
 [connection signal="screen_entered" from="Chars_Enemies/FlyingEnemy/VisibleOnScreenNotifier2D" to="Chars_Enemies/FlyingEnemy" method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="body_entered" from="Chars_Enemies/Character/Interactable" to="Chars_Enemies/Character/Interactable" method="_on_body_entered"]
 [connection signal="body_exited" from="Chars_Enemies/Character/Interactable" to="Chars_Enemies/Character/Interactable" method="_on_body_exited"]
+[connection signal="body_entered" from="Chars_Enemies/Character4/Interactable" to="Chars_Enemies/Character4/Interactable" method="_on_body_entered"]
+[connection signal="body_exited" from="Chars_Enemies/Character4/Interactable" to="Chars_Enemies/Character4/Interactable" method="_on_body_exited"]
 [connection signal="body_entered" from="Chars_Enemies/Character2/Interactable" to="Chars_Enemies/Character2/Interactable" method="_on_body_entered"]
 [connection signal="body_exited" from="Chars_Enemies/Character2/Interactable" to="Chars_Enemies/Character2/Interactable" method="_on_body_exited"]
 [connection signal="body_entered" from="Chars_Enemies/Character3/Interactable" to="Chars_Enemies/Character3/Interactable" method="_on_body_entered"]

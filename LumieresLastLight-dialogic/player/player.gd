@@ -1,12 +1,14 @@
 class_name Player
 extends CharacterBody2D
 
-enum States {IDLE, WALKING, JUMPING}
+enum States {IDLE, WALKING, JUMPING, HURT}
 
 const DustEffectScene = preload("res://effects/dust_effect.tscn")
 const JumpEffectScene = preload("res://effects/jump_effect.tscn")
 const WallJumpEffectScene = preload("res://effects/wall_jump_effect.tscn")
 #const StatesScene = preload("res://states.tscn")
+const KnockbackStrength = 900
+
 
 @export var acceleration = 512
 @export var max_velocity = 80
@@ -17,11 +19,14 @@ const WallJumpEffectScene = preload("res://effects/wall_jump_effect.tscn")
 @export var max_fall_velocity = 128
 @export var wall_slide_speed = 42
 @export var max_wall_slide_speed = 128
+@export var knockback_force = 100
 
 var state_machine = States.IDLE
 var air_jump = false
 var state = move_state #THIS IS HOW I CHANGE THE PLAYERS BEHAVIOR BASED ON THE ROOM
-#var velocity = Vector2.ZERO
+var damage_direction : Vector2
+var cooldown = 1.0
+
 
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Sprite2D
@@ -36,6 +41,7 @@ var state = move_state #THIS IS HOW I CHANGE THE PLAYERS BEHAVIOR BASED ON THE R
 
 func _ready():
 	PlayerStats.no_health.connect(die)
+	change_state(States.IDLE)
 
 func _enter_tree():
 	MainInstances.player = self
@@ -49,6 +55,8 @@ func _physics_process(delta):
 			walking()
 		States.JUMPING:
 			jumping()
+		States.HURT:
+			hurt(delta)
 	
 	if Input.is_action_pressed("fire") and fire_rate_timer.time_left == 0:
 		fire_rate_timer.start()
@@ -61,7 +69,11 @@ func _physics_process(delta):
 		player_blaster.fire_missile()
 		PlayerStats.missiles -= 1
 	
-	
+	cooldown -= delta
+	if cooldown <= 0:
+		print("not hurrrttt")
+		change_state(States.IDLE)
+
 func _exit_tree():
 	MainInstances.player = null 
 
@@ -87,6 +99,14 @@ func jumping():
 	print("rjumpgg")
 	if !Input.is_action_pressed("ui_up"):
 		change_state(States.IDLE)
+
+func _on_hurtbox_entered(node):
+	damage_direction = node.global_position - global_position
+
+func hurt(delta):
+	print("hurt")
+	velocity = KnockbackStrength * damage_direction
+	move_and_slide()
 
 func move_state(delta):
 	apply_gravity(delta)
@@ -217,13 +237,23 @@ func _on_drop_timer_timeout():
 	set_collision_mask_value(2, true)
 
 func _on_hurtbox_hurt(hitbox, damage):
+	var knockback = 1 if (self.global_position.x - global_position.x) > 0 else -1
+	change_state(States.HURT)
 	Sound.play(Sound.hurt, randf_range(0.8, 1.1), -5.0)
 	Events.add_screenshake.emit(4, 0.2)
 	PlayerStats.health -= 1
 	hurtbox.is_invincible = true
+	#_on_hurtbox_area_entered(Area2D)
 	blinking_animation_player.play("Blink")
 	await blinking_animation_player.animation_finished
 	hurtbox.is_invincible = false
-
-
-
+#
+#func knockback(area, delta):
+	#velocity.x = move_toward(velocity.x, 0, 200*delta)
+	#var knockback = 1 if (area.global_position.x - global_position.x) > 0 else -1
+	##knockback_force *= knockback
+	##move_and_slide()
+#
+#func _on_hurtbox_area_entered(area):
+	#var knockback = 1 if (area.global_position.x - global_position.x) > 0 else -1
+	#knockback_force *= knockback
